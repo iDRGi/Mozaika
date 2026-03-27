@@ -1,0 +1,38 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --no-src-dir --import-alias \"@/*\" --no-eslint)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(cmd /c \"node --version && npm --version\")",
+      "Bash(cmd /c \"node -v & npm -v & docker --version\")",
+      "Bash(cmd /c \"where node & where npm & where docker\")",
+      "Bash(cmd /c \"echo %PATH%\")",
+      "Bash(/c/Windows/System32/cmd.exe /c \"node -v 2>&1 && npm -v 2>&1 && docker --version 2>&1\")",
+      "Bash(/c/Windows/System32/cmd.exe /c \"node -v\")",
+      "Bash(echo \"exit: $?\")",
+      "Read(//c/Program Files/nodejs//**)",
+      "Read(//c/Users/DRG/AppData/Roaming/**)",
+      "Read(//c/Program Files/Docker/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(export PATH=\"$PATH:/c/Program Files/nodejs\")",
+      "Bash(npm -v)",
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "Bash(docker compose:*)",
+      "Bash(export PATH=\"/c/nvm4w/nodejs:$PATH\")",
+      "WebSearch",
+      "WebFetch(domain:payloadcms.com)",
+      "Bash(grep -rn \"from ''@payloadcms/next''\" \"f:/MZ/Mozaika/src/\")",
+      "Bash(node -e \"const p=require\\(''f:/MZ/Mozaika/node_modules/@payloadcms/next/package.json''\\); console.log\\(Object.keys\\(p.exports||{}\\).join\\(''\\\\n''\\)\\)\")",
+      "Bash(node -e \"const p=require\\(''''f:/MZ/Mozaika/node_modules/@payloadcms/next/package.json''''\\); console.log\\(JSON.stringify\\(p.exports, null, 2\\)\\)\")",
+      "Bash(node -e \"const m=require\\(''''f:/MZ/Mozaika/node_modules/@payloadcms/next/dist/exports/views.js''''\\); console.log\\(Object.keys\\(m\\).join\\(''''\\\\n''''\\)\\)\")",
+      "Bash(grep -r \"generateImportMap\\\\|importMap\\\\|CollectionCards\" /f/MZ/Mozaika/node_modules/@payloadcms/next/dist/plugin*)",
+      "Bash(find /f/MZ/Mozaika/node_modules/@payloadcms/next/dist -name plugin* -o -name webpack*)",
+      "Bash(ls -la \"/f/MZ/Mozaika/src/app/\\(payload\\)/admin/\")",
+      "Bash(dir \"f:\\\\MZ\\\\Mozaika\\\\src\\\\app\\\\\\(payload\\)\\\\admin\")",
+      "Bash(git checkout:*)",
+      "Bash(node -e \"const p=require\\(''f:/MZ/Mozaika/node_modules/@payloadcms/next/package.json''\\); console.log\\(JSON.stringify\\(p.exports[''./css''], null, 2\\)\\)\")"
+    ]
+  }
+}
