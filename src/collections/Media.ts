@@ -16,7 +16,6 @@ const Media: CollectionConfig = {
   },
   upload: {
     staticDir: path.resolve(dirname, '../../public/media'),
-    staticURL: '/media', // Next.js отдаёт public/media как /media — без авторизации
     imageSizes: [
       {
         name: 'thumbnail',
