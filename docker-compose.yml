@@ -6,8 +6,8 @@ services:
     working_dir: /app
     command: >
       sh -c "
-        NODE_OPTIONS='--import tsx/esm' npx payload migrate:create --name init --forceAcceptWarning || true &&
-        NODE_OPTIONS='--import tsx/esm' npx payload migrate --forceAcceptWarning
+        NODE_OPTIONS='--import tsx' npx payload migrate:create --name init --forceAcceptWarning || true &&
+        NODE_OPTIONS='--import tsx' npx payload migrate --forceAcceptWarning
       "
     env_file: .env
     restart: "no"
