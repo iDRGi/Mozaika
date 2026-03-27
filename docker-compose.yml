@@ -1,4 +1,17 @@
 services:
+  migrate:
+    build:
+      context: .
+      target: builder
+    command: sh -c "npx payload migrate:create --name init --forceAcceptWarning; npx payload migrate --forceAcceptWarning"
+    env_file: .env
+    restart: "no"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - internal
+
   app:
     build: .
     restart: unless-stopped
@@ -6,6 +19,8 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
+      migrate:
+        condition: service_completed_successfully
     volumes:
       - media_uploads:/app/public/media
     networks:
