@@ -5,10 +5,14 @@ export async function register() {
     const payload = await getPayload({ config })
 
     try {
-      // Синхронизируем схему БД при старте (создаёт таблицы если их нет)
-      await (payload.db as any).push({ payload, force: true })
+      const { pushSchema } = await import('drizzle-kit/api')
+      const db     = (payload.db as any).drizzle
+      const schema = (payload.db as any).schema
+      const { apply } = await pushSchema(schema, db)
+      await apply()
+      console.log('[instrumentation] DB schema synced')
     } catch (err) {
-      console.error('[instrumentation] DB push failed:', err)
+      console.error('[instrumentation] DB schema sync failed:', err)
     }
   }
 }
