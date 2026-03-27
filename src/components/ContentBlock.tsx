@@ -30,7 +30,7 @@ export default function ContentBlock({ block }: { block: ContentBlockData }) {
         <div className="w-full md:w-1/2 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-sm">
           <Image
             src={imageUrl}
-            alt={block.image.alt || block.title}
+            alt={block.image?.alt || block.title}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, 50vw"
