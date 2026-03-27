@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Каталог мебели магазина Мозаика',
 }
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 const CATEGORIES = [
   { value: 'all',       label: 'Все' },

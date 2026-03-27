@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Главная',
 }
 
-export const revalidate = 60 // обновлять кэш каждые 60 секунд
+export const dynamic = 'force-dynamic'
 
 async function getActiveBanners() {
   const payload = await getPayload({ config })
