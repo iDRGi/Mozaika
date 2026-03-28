@@ -9,6 +9,7 @@ import Banners from './collections/Banners'
 import Products from './collections/Products'
 import Media from './collections/Media'
 import ContentBlocks from './collections/ContentBlocks'
+import Suppliers from './collections/Suppliers'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -20,7 +21,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Users, Media, Banners, ContentBlocks, Products],
+  collections: [Users, Media, Banners, ContentBlocks, Products, Suppliers],
   editor: lexicalEditor(),
   db: postgresAdapter({
     pool: { 

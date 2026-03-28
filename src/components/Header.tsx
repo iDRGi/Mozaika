@@ -4,7 +4,8 @@ import { STORE } from '@/constants/store'
 const NAV = [
   { href: '/',         label: 'Главная' },
   { href: '/catalog',  label: 'Каталог' },
-  { href: '/contacts', label: 'Контакты' },
+  { href: '/suppliers', label: 'Поставщики' },
+  { href: '/contacts',  label: 'Контакты' },
 ]
 
 export default function Header() {
