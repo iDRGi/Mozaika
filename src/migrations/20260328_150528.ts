@@ -2,9 +2,9 @@ import { MigrateUpArgs, MigrateDownArgs, sql } from '@payloadcms/db-postgres'
 
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
-   CREATE TYPE "public"."enum_banners_type" AS ENUM('promo', 'new', 'info', 'urgent');
-  CREATE TYPE "public"."enum_content_blocks_image_position" AS ENUM('left', 'right');
-  CREATE TYPE "public"."enum_products_category" AS ENUM('sofas', 'armchairs', 'beds', 'tables', 'chairs', 'wardrobes', 'dressers', 'other');
+   DO $$ BEGIN CREATE TYPE "public"."enum_banners_type" AS ENUM('promo', 'new', 'info', 'urgent'); EXCEPTION WHEN duplicate_object THEN null; END $$;
+  DO $$ BEGIN CREATE TYPE "public"."enum_content_blocks_image_position" AS ENUM('left', 'right'); EXCEPTION WHEN duplicate_object THEN null; END $$;
+  DO $$ BEGIN CREATE TYPE "public"."enum_products_category" AS ENUM('sofas', 'armchairs', 'beds', 'tables', 'chairs', 'wardrobes', 'dressers', 'other'); EXCEPTION WHEN duplicate_object THEN null; END $$;
   CREATE TABLE IF NOT EXISTS "users" (
   	"id" serial PRIMARY KEY NOT NULL,
   	"name" varchar,
