@@ -60,6 +60,27 @@ export default function ContactsPage() {
               </tbody>
             </table>
           </div>
+
+          {/* Мы в соцсетях */}
+          <div className="bg-white rounded-xl p-6 border border-stone-200">
+            <h2 className="text-lg font-semibold text-stone-700 mb-3 flex items-center gap-2">
+              <span>🌐</span> Мы в соцсетях
+            </h2>
+            <div className="flex flex-col gap-3">
+              {STORE.socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-brand-600 hover:text-brand-700 font-medium transition-colors"
+                >
+                  <span>{s.icon}</span>
+                  {s.label}
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Правая колонка — карта */}

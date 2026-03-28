@@ -10,4 +10,8 @@ export const STORE = {
   workingHours: [
     { days: 'Пн–Вс', hours: '10:00 – 19:00' },
   ],
+  socials: [
+    { label: 'Telegram', url: 'https://t.me/placeholder', icon: '✈️' },
+    { label: 'MAX',      url: 'https://max.ru/placeholder', icon: '💬' },
+  ],
 } as const

@@ -91,6 +91,27 @@ export default async function HomePage() {
         </section>
       )}
 
+      {/* Мы в соцсетях */}
+      <section className="py-8 bg-white border-y border-stone-200">
+        <div className="container-main text-center">
+          <h2 className="text-lg font-semibold text-stone-600 mb-4">Мы в соцсетях</h2>
+          <div className="flex justify-center gap-4">
+            {STORE.socials.map((s) => (
+              <a
+                key={s.label}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 bg-stone-100 hover:bg-brand-50 hover:text-brand-700 text-stone-700 font-medium px-5 py-2.5 rounded-lg transition-colors border border-stone-200 hover:border-brand-300"
+              >
+                <span>{s.icon}</span>
+                {s.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Контакты (краткая версия) */}
       <section className="py-12">
         <div className="container-main">
