@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-stone-800 text-stone-300 mt-auto">
       <div className="container-main py-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* О магазине */}
           <div>
             <h3 className="text-white font-bold text-lg mb-3">{STORE.name}</h3>
@@ -36,6 +36,25 @@ export default function Footer() {
                   className="block hover:text-white transition-colors"
                 >
                   {p.number}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Соцсети */}
+          <div>
+            <h3 className="text-white font-semibold mb-3">Мы в соцсетях</h3>
+            <div className="space-y-2 text-sm">
+              {STORE.socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:text-white transition-colors"
+                >
+                  <span>{s.icon}</span>
+                  {s.label}
                 </a>
               ))}
             </div>
