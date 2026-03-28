@@ -57,7 +57,7 @@ export default async function SuppliersPage() {
         </div>
       </div>
 
-    <div className="container-main py-10">
+    <div className="container-main py-10 pb-10">
 
       {suppliers.length === 0 ? (
         <p className="text-stone-400 text-center py-20">Поставщики пока не добавлены.</p>
@@ -113,7 +113,7 @@ export default async function SuppliersPage() {
     </div>
 
     {/* CTA */}
-    <section className="bg-brand-600 mt-10">
+    <section className="bg-brand-600">
       <div className="container-main py-12 text-center">
         <p className="text-brand-100 text-lg mb-2">Звони по телефону и заказывай мебель</p>
         <a
