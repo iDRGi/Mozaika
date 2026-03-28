@@ -111,6 +111,19 @@ export default async function SuppliersPage() {
         </div>
       )}
     </div>
+
+    {/* CTA */}
+    <section className="bg-brand-600 mt-10">
+      <div className="container-main py-12 text-center">
+        <p className="text-brand-100 text-lg mb-2">Звони по телефону и заказывай мебель</p>
+        <a
+          href={`tel:${STORE.phones[0].number.replace(/\D/g, '')}`}
+          className="text-white text-4xl font-bold hover:text-brand-200 transition-colors"
+        >
+          {STORE.phones[0].number}
+        </a>
+      </div>
+    </section>
     </>
   )
 }
