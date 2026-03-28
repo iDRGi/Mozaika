@@ -27,7 +27,7 @@ export default async function SuppliersPage() {
   const suppliers = await getSuppliers()
 
   return (
-    <>
+    <div className="flex flex-col flex-1">
       {/* Шапка страницы */}
       <div className="bg-white border-b border-stone-200">
         <div className="container-main py-10">
@@ -57,7 +57,7 @@ export default async function SuppliersPage() {
         </div>
       </div>
 
-    <div className="container-main py-10 pb-10">
+    <div className="container-main py-10 flex-1">
 
       {suppliers.length === 0 ? (
         <p className="text-stone-400 text-center py-20">Поставщики пока не добавлены.</p>
@@ -124,6 +124,6 @@ export default async function SuppliersPage() {
         </a>
       </div>
     </section>
-    </>
+    </div>
   )
 }
