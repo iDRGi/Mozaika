@@ -27,14 +27,37 @@ export default async function SuppliersPage() {
   const suppliers = await getSuppliers()
 
   return (
+    <>
+      {/* Шапка страницы */}
+      <div className="bg-white border-b border-stone-200">
+        <div className="container-main py-10">
+          <h1 className="text-3xl font-bold text-stone-800 mb-2">Наши поставщики</h1>
+          <p className="text-stone-500 mb-8">
+            С полным ассортиментом вы можете ознакомиться на сайте нашего поставщика.
+          </p>
+
+          {/* Плитки преимуществ */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-brand-50 border border-brand-100 rounded-xl p-5">
+              <div className="text-2xl mb-2">🏭</div>
+              <h3 className="font-semibold text-stone-800 mb-1">Прямые поставки</h3>
+              <p className="text-stone-500 text-sm">Работаем напрямую с фабриками мебели без посредников</p>
+            </div>
+            <div className="bg-brand-50 border border-brand-100 rounded-xl p-5">
+              <div className="text-2xl mb-2">💰</div>
+              <h3 className="font-semibold text-stone-800 mb-1">Лучшие цены</h3>
+              <p className="text-stone-500 text-sm">Предлагаем лучшие розничные цены за счёт прямого сотрудничества</p>
+            </div>
+            <div className="bg-brand-50 border border-brand-100 rounded-xl p-5">
+              <div className="text-2xl mb-2">✅</div>
+              <h3 className="font-semibold text-stone-800 mb-1">Гарантия качества</h3>
+              <p className="text-stone-500 text-sm">Вся мебель сертифицирована и соответствует стандартам качества</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <div className="container-main py-10">
-      <h1 className="text-3xl font-bold text-stone-800 mb-3">Наши поставщики</h1>
-      <p className="text-stone-500 mb-2">
-        С полным ассортиментом вы можете ознакомиться на сайте нашего поставщика.
-      </p>
-      <p className="text-stone-600 mb-10">
-        Мы работаем напрямую с фабриками мебели. Предлагаем лучшие розничные цены.
-      </p>
 
       {suppliers.length === 0 ? (
         <p className="text-stone-400 text-center py-20">Поставщики пока не добавлены.</p>
@@ -88,5 +111,6 @@ export default async function SuppliersPage() {
         </div>
       )}
     </div>
+    </>
   )
 }
