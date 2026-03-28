@@ -32,7 +32,19 @@
       "Bash(ls -la \"/f/MZ/Mozaika/src/app/\\(payload\\)/admin/\")",
       "Bash(dir \"f:\\\\MZ\\\\Mozaika\\\\src\\\\app\\\\\\(payload\\)\\\\admin\")",
       "Bash(git checkout:*)",
-      "Bash(node -e \"const p=require\\(''f:/MZ/Mozaika/node_modules/@payloadcms/next/package.json''\\); console.log\\(JSON.stringify\\(p.exports[''./css''], null, 2\\)\\)\")"
+      "Bash(node -e \"const p=require\\(''f:/MZ/Mozaika/node_modules/@payloadcms/next/package.json''\\); console.log\\(JSON.stringify\\(p.exports[''./css''], null, 2\\)\\)\")",
+      "Bash(grep -r \"push\\\\|createMigration\" f:/MZ/Mozaika/node_modules/@payloadcms/db-postgres/dist --include=*.d.ts)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s https://raw.githubusercontent.com/payloadcms/payload/main/templates/blank/Dockerfile)",
+      "Bash(curl -s https://raw.githubusercontent.com/payloadcms/payload/main/templates/blank/docker-compose.yml)",
+      "Bash(curl -s https://raw.githubusercontent.com/payloadcms/template-ecommerce/main/docker-compose.yml)",
+      "Bash(curl -s https://raw.githubusercontent.com/payloadcms/template-ecommerce/main/Dockerfile)",
+      "Bash(grep -r \"redirect\\\\|router\\\\.push\" /f/MZ/Mozaika/src --include=*.ts --include=*.tsx)",
+      "Bash(npm list:*)",
+      "Bash(npm audit:*)",
+      "Bash(grep -r \"password\\\\|secret\\\\|key\" /f/MZ/Mozaika/src --include=*.ts --include=*.tsx -i)",
+      "Bash(grep -r \"cookie\\\\|csrf\\\\|CORS\" /f/MZ/Mozaika/src --include=*.ts --include=*.tsx -i)",
+      "Bash(grep -r \"SQL\\\\|query\\\\|WHERE\" /f/MZ/Mozaika/src/collections --include=*.ts)"
     ]
   }
 }

@@ -6,12 +6,12 @@ export const STORE = {
     { label: 'Основной', number: '+7 (993) 275-19-29' },
     { label: 'Дополнительный',  number: '+7 (901) 519-44-17' },
   ],
-  address: 'Каширский переулок, 68, Бронницы, Московская область, 140170',
+  address: 'г. Бронницы пер. Каширский д. 68, 140170',
   workingHours: [
     { days: 'Пн–Вс', hours: '10:00 – 19:00' },
   ],
   socials: [
-    { label: 'Telegram', url: 'https://t.me/placeholder', icon: '✈️' },
+    { label: 'Telegram', url: 'https://t.me/mebelnaya_mozayka', icon: '✈️' },
     { label: 'MAX',      url: 'https://max.ru/placeholder', icon: '💬' },
   ],
 } as const
