@@ -71,6 +71,7 @@ export interface Config {
     banners: Banner;
     'content-blocks': ContentBlock;
     products: Product;
+    suppliers: Supplier;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -82,6 +83,7 @@ export interface Config {
     banners: BannersSelect<false> | BannersSelect<true>;
     'content-blocks': ContentBlocksSelect<false> | ContentBlocksSelect<true>;
     products: ProductsSelect<false> | ProductsSelect<true>;
+    suppliers: SuppliersSelect<false> | SuppliersSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -125,7 +127,6 @@ export interface UserAuthOperations {
 export interface User {
   id: number;
   name?: string | null;
-  role?: ('admin' | 'user') | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -136,6 +137,45 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+/**
+ * Изображения и файлы
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    card?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
 }
 /**
  * Баннеры и акции на главной странице
@@ -153,49 +193,52 @@ export interface Banner {
   createdAt: string;
 }
 /**
- * Каталог товаров
+ * Блоки с картинкой и текстом на главной странице
  *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products".
+ * via the `definition` "content-blocks".
  */
-export interface Media {
-  id: number;
-  alt?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    thumbnail?: { url?: string | null; width?: number | null; height?: number | null; filename?: string | null };
-    card?: { url?: string | null; width?: number | null; height?: number | null; filename?: string | null };
-  };
-}
 export interface ContentBlock {
   id: number;
   title: string;
   text?: string | null;
-  image?: number | Media | null;
+  image?: (number | null) | Media;
   imagePosition?: ('left' | 'right') | null;
   isActive?: boolean | null;
   order?: number | null;
   updatedAt: string;
   createdAt: string;
 }
+/**
+ * Каталог товаров
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products".
+ */
 export interface Product {
   id: number;
   name: string;
   description?: string | null;
   price?: number | null;
-  image?: number | Media | null;
+  image?: (number | null) | Media;
   category?: ('sofas' | 'armchairs' | 'beds' | 'tables' | 'chairs' | 'wardrobes' | 'dressers' | 'other') | null;
   isVisible?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Поставщики мебели — отображаются на странице /suppliers
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "suppliers".
+ */
+export interface Supplier {
+  id: number;
+  name: string;
+  logo?: (number | null) | Media;
+  description?: string | null;
+  website?: string | null;
+  isActive?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -225,6 +268,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'products';
         value: number | Product;
+      } | null)
+    | ({
+        relationTo: 'suppliers';
+        value: number | Supplier;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -274,7 +321,6 @@ export interface PayloadMigration {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
-  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -284,6 +330,48 @@ export interface UsersSelect<T extends boolean = true> {
   hash?: T;
   loginAttempts?: T;
   lockUntil?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        card?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+      };
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -297,18 +385,10 @@ export interface BannersSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  url?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  sizes?: T;
-}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "content-blocks_select".
+ */
 export interface ContentBlocksSelect<T extends boolean = true> {
   title?: T;
   text?: T;
@@ -319,6 +399,10 @@ export interface ContentBlocksSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
 }
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "products_select".
+ */
 export interface ProductsSelect<T extends boolean = true> {
   name?: T;
   description?: T;
@@ -326,6 +410,19 @@ export interface ProductsSelect<T extends boolean = true> {
   image?: T;
   category?: T;
   isVisible?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "suppliers_select".
+ */
+export interface SuppliersSelect<T extends boolean = true> {
+  name?: T;
+  logo?: T;
+  description?: T;
+  website?: T;
+  isActive?: T;
   updatedAt?: T;
   createdAt?: T;
 }
