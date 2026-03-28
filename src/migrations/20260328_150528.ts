@@ -136,6 +136,8 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   	"created_at" timestamp(3) with time zone DEFAULT now() NOT NULL
   );
   
+  ALTER TABLE "payload_locked_documents_rels" ADD COLUMN IF NOT EXISTS "suppliers_id" integer;
+
   DO $$ BEGIN
    ALTER TABLE "content_blocks" ADD CONSTRAINT "content_blocks_image_id_media_id_fk" FOREIGN KEY ("image_id") REFERENCES "public"."media"("id") ON DELETE set null ON UPDATE no action;
   EXCEPTION
