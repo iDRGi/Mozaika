@@ -11,6 +11,15 @@ export const metadata: Metadata = {
 
 export const dynamic = 'force-dynamic'
 
+function isSafeUrl(url: string): boolean {
+  try {
+    const { protocol } = new URL(url)
+    return protocol === 'https:' || protocol === 'http:'
+  } catch {
+    return false
+  }
+}
+
 async function getSuppliers() {
   const payload = await getPayload({ config })
   const { docs } = await payload.find({
@@ -95,7 +104,7 @@ export default async function SuppliersPage() {
                 </div>
 
                 {/* Кнопка */}
-                {supplier.website && (
+                {supplier.website && isSafeUrl(supplier.website) && (
                   <a
                     href={supplier.website}
                     target="_blank"
