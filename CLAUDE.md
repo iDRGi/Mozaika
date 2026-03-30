@@ -15,7 +15,10 @@ npx payload generate:types   # Regenerate src/payload-types.ts after changing co
 npx payload migrate:create --name <name>  # Generate a new DB migration locally (requires DATABASE_URL)
 ```
 
-**Local dev requires a running PostgreSQL.** Use `docker-compose.dev.yml` or set `DATABASE_URL` manually.
+**Local dev requires a running PostgreSQL.** Start it with:
+```bash
+docker-compose -f docker-compose.dev.yml up
+```
 
 ## Architecture
 
@@ -59,7 +62,7 @@ All collections require `npx payload generate:types` after changes.
 
 ```bash
 # Full deploy
-git pull && sudo docker compose up --build -d
+sudo git pull && sudo docker compose up --build -d
 
 # After nginx.conf changes — full restart required (bind mount inode issue with git pull)
 sudo docker compose restart nginx

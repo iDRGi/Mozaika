@@ -82,10 +82,10 @@ export default async function HomePage() {
 
       {/* Блоки с картинкой и текстом */}
       {contentBlocks.length > 0 && (
-        <section className="py-16">
-          <div className="container-main space-y-16">
-            {contentBlocks.map((block) => (
-              <ContentBlock key={block.id} block={block as any} />
+        <section className="pt-4 pb-4">
+          <div className="container-main space-y-4">
+            {contentBlocks.map((block, index) => (
+              <ContentBlock key={block.id} block={block as any} index={index} />
             ))}
           </div>
         </section>

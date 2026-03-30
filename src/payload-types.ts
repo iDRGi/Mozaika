@@ -221,6 +221,7 @@ export interface Product {
   description?: string | null;
   price?: number | null;
   image?: (number | null) | Media;
+  images?: (number | Media)[] | null;
   category?: ('sofas' | 'armchairs' | 'beds' | 'tables' | 'chairs' | 'wardrobes' | 'dressers' | 'other') | null;
   isVisible?: boolean | null;
   updatedAt: string;
@@ -408,6 +409,7 @@ export interface ProductsSelect<T extends boolean = true> {
   description?: T;
   price?: T;
   image?: T;
+  images?: T;
   category?: T;
   isVisible?: T;
   updatedAt?: T;

@@ -35,6 +35,14 @@ const Products: CollectionConfig = {
       label: 'Фото товара',
     },
     {
+      name: 'images',
+      type: 'upload',
+      relationTo: 'media',
+      hasMany: true,
+      maxRows: 10,
+      label: 'Дополнительные фото (до 10)',
+    },
+    {
       name: 'category',
       type: 'select',
       label: 'Категория',
