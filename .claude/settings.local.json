@@ -44,7 +44,11 @@
       "Bash(npm audit:*)",
       "Bash(grep -r \"password\\\\|secret\\\\|key\" /f/MZ/Mozaika/src --include=*.ts --include=*.tsx -i)",
       "Bash(grep -r \"cookie\\\\|csrf\\\\|CORS\" /f/MZ/Mozaika/src --include=*.ts --include=*.tsx -i)",
-      "Bash(grep -r \"SQL\\\\|query\\\\|WHERE\" /f/MZ/Mozaika/src/collections --include=*.ts)"
+      "Bash(grep -r \"SQL\\\\|query\\\\|WHERE\" /f/MZ/Mozaika/src/collections --include=*.ts)",
+      "WebFetch(domain:learn.netdata.cloud)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.netdata.cloud)",
+      "Bash(ls -la /f/MZ/Mozaika/src/app/\\\\\\(frontend\\\\\\)/_components/)"
     ]
   }
 }
