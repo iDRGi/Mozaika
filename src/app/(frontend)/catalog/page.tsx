@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { type Where, getPayload } from 'payload'
 import config from '@payload-config'
-import ProductCard from '@/components/ProductCard'
+import CatalogGrid from '@/components/CatalogGrid'
 
 export const metadata: Metadata = {
   title: 'Каталог',
@@ -76,18 +76,7 @@ export default async function CatalogPage({ searchParams }: Props) {
     </div>
 
     <div className="w-full container-main py-6 sm:py-10 flex-1">
-
-      {products.length === 0 ? (
-        <div className="text-center py-20 text-stone-400">
-          <p className="text-lg text-stone-500">Товары в этой категории пока не добавлены</p>
-        </div>
-      ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-6">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      )}
+      <CatalogGrid products={products as any} />
     </div>
     </div>
   )
