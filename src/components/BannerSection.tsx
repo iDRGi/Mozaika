@@ -8,10 +8,10 @@ type Banner = {
 }
 
 const TYPE_STYLES: Record<BannerType, string> = {
-  promo:  'bg-amber-50  border-amber-300  text-amber-800',
-  new:    'bg-green-50  border-green-300  text-green-800',
-  info:   'bg-blue-50   border-blue-300   text-blue-800',
-  urgent: 'bg-red-50    border-red-300    text-red-800',
+  promo:  'bg-amber-900/30  border-amber-700  text-amber-300',
+  new:    'bg-green-900/30  border-green-700  text-green-300',
+  info:   'bg-blue-900/30   border-blue-700   text-blue-300',
+  urgent: 'bg-red-900/30    border-red-700    text-red-300',
 }
 
 const TYPE_BADGES: Record<BannerType, string> = {

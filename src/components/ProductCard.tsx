@@ -26,9 +26,9 @@ export default function ProductCard({ product }: { product: Product }) {
     <>
       <div
         onClick={() => setOpen(true)}
-        className="bg-white rounded-xl border border-stone-200 overflow-hidden hover:shadow-md hover:-translate-y-0.5 transition-all cursor-pointer"
+        className="bg-stone-800 rounded-xl border border-stone-700 overflow-hidden hover:shadow-lg hover:shadow-black/40 hover:-translate-y-1 transition-all duration-200 cursor-pointer"
       >
-        <div className="aspect-square bg-stone-100 relative overflow-hidden">
+        <div className="aspect-square bg-stone-700 relative overflow-hidden">
           {imageUrl ? (
             <Image
               src={imageUrl}
@@ -50,14 +50,14 @@ export default function ProductCard({ product }: { product: Product }) {
               {CATEGORY_LABELS[product.category] || product.category}
             </span>
           )}
-          <h3 className="font-semibold text-stone-800 mt-1 leading-tight line-clamp-2 text-sm sm:text-base">
+          <h3 className="font-semibold text-white mt-1 leading-tight line-clamp-2 text-sm sm:text-base">
             {product.name}
           </h3>
           {product.description && (
-            <p className="hidden sm:block text-sm text-stone-500 mt-1 line-clamp-2">{product.description}</p>
+            <p className="hidden sm:block text-sm text-stone-400 mt-1 line-clamp-2">{product.description}</p>
           )}
           {product.price != null && product.price > 0 && (
-            <p className="mt-2 sm:mt-3 text-base sm:text-lg font-bold text-brand-700">
+            <p className="mt-2 sm:mt-3 text-base sm:text-lg font-bold text-brand-400">
               {product.price.toLocaleString('ru-RU')} ₽
             </p>
           )}

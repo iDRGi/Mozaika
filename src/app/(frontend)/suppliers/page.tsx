@@ -38,29 +38,29 @@ export default async function SuppliersPage() {
   return (
     <div className="flex flex-col flex-1">
       {/* Шапка страницы */}
-      <div className="bg-white border-b border-stone-200">
+      <div className="bg-stone-800 border-b border-stone-700">
         <div className="container-main py-10">
-          <h1 className="text-3xl font-bold text-stone-800 mb-2">Наши поставщики</h1>
-          <p className="text-stone-500 mb-8">
+          <h1 className="text-3xl font-bold text-white mb-2">Наши поставщики</h1>
+          <p className="text-stone-400 mb-8">
             С полным ассортиментом вы можете ознакомиться на сайте нашего поставщика.
           </p>
 
           {/* Плитки преимуществ */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-brand-50 border border-brand-100 rounded-xl p-5">
+            <div className="bg-stone-700/60 border border-stone-600 rounded-xl p-5">
               <div className="text-2xl mb-2">🏭</div>
-              <h3 className="font-semibold text-stone-800 mb-1">Прямые поставки</h3>
-              <p className="text-stone-500 text-sm">Работаем напрямую с фабриками мебели без посредников</p>
+              <h3 className="font-semibold text-white mb-1">Прямые поставки</h3>
+              <p className="text-stone-400 text-sm">Работаем напрямую с фабриками мебели без посредников</p>
             </div>
-            <div className="bg-brand-50 border border-brand-100 rounded-xl p-5">
+            <div className="bg-stone-700/60 border border-stone-600 rounded-xl p-5">
               <div className="text-2xl mb-2">💰</div>
-              <h3 className="font-semibold text-stone-800 mb-1">Лучшие цены</h3>
-              <p className="text-stone-500 text-sm">Предлагаем лучшие розничные цены за счёт прямого сотрудничества</p>
+              <h3 className="font-semibold text-white mb-1">Лучшие цены</h3>
+              <p className="text-stone-400 text-sm">Предлагаем лучшие розничные цены за счёт прямого сотрудничества</p>
             </div>
-            <div className="bg-brand-50 border border-brand-100 rounded-xl p-5">
+            <div className="bg-stone-700/60 border border-stone-600 rounded-xl p-5">
               <div className="text-2xl mb-2">✅</div>
-              <h3 className="font-semibold text-stone-800 mb-1">Гарантия качества</h3>
-              <p className="text-stone-500 text-sm">Вся мебель сертифицирована и соответствует стандартам качества</p>
+              <h3 className="font-semibold text-white mb-1">Гарантия качества</h3>
+              <p className="text-stone-400 text-sm">Вся мебель сертифицирована и соответствует стандартам качества</p>
             </div>
           </div>
         </div>
@@ -78,11 +78,11 @@ export default async function SuppliersPage() {
             return (
               <div
                 key={supplier.id}
-                className="bg-white rounded-xl border border-stone-200 p-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
+                className="bg-stone-800 rounded-xl border border-stone-700 p-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
               >
                 {/* Логотип + информация (строка на мобильном) */}
                 <div className="flex items-start gap-4 flex-1 min-w-0">
-                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center bg-stone-50 rounded-lg border border-stone-100 overflow-hidden">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center bg-stone-700 rounded-lg border border-stone-600 overflow-hidden">
                     {logo?.url ? (
                       <Image
                         src={logo.url}
@@ -92,14 +92,14 @@ export default async function SuppliersPage() {
                         className="object-contain w-full h-full p-2"
                       />
                     ) : (
-                      <span className="text-3xl sm:text-4xl text-stone-300">🏭</span>
+                      <span className="text-3xl sm:text-4xl text-stone-500">🏭</span>
                     )}
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <h2 className="text-lg font-semibold text-stone-800 mb-1">{supplier.name}</h2>
+                    <h2 className="text-lg font-semibold text-white mb-1">{supplier.name}</h2>
                     {supplier.description && (
-                      <p className="text-stone-500 text-sm leading-relaxed">{supplier.description}</p>
+                      <p className="text-stone-400 text-sm leading-relaxed">{supplier.description}</p>
                     )}
                   </div>
                 </div>

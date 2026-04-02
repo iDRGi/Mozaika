@@ -16,9 +16,9 @@ type ContentBlockData = {
 }
 
 const THEMES = [
-  { bg: 'bg-white',    border: 'border-stone-200' },
-  { bg: 'bg-brand-50', border: 'border-brand-100' },
-  { bg: 'bg-stone-50', border: 'border-stone-200' },
+  { bg: 'bg-stone-800',    border: 'border-stone-700' },
+  { bg: 'bg-stone-700/40', border: 'border-stone-600' },
+  { bg: 'bg-stone-800',    border: 'border-stone-600' },
 ] as const
 
 export default function ContentBlock({ block, index = 0 }: { block: ContentBlockData; index?: number }) {
@@ -46,9 +46,9 @@ export default function ContentBlock({ block, index = 0 }: { block: ContentBlock
           </div>
         )}
         <div className={imageUrl ? 'w-full md:w-1/2' : 'w-full max-w-2xl mx-auto text-center'}>
-          <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-4">{block.title}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">{block.title}</h2>
           {block.text && (
-            <p className="text-stone-600 leading-relaxed whitespace-pre-line">{block.text}</p>
+            <p className="text-stone-300 leading-relaxed whitespace-pre-line">{block.text}</p>
           )}
         </div>
       </div>

@@ -11,11 +11,11 @@ const NAV = [
 
 export default function Header() {
   return (
-    <header className="bg-white border-b border-stone-200 sticky top-0 z-50">
+    <header className="bg-stone-800 border-b border-stone-700 shadow-sm sticky top-0 z-50">
       <div className="container-main">
         <div className="flex items-center justify-between h-16">
           {/* Логотип */}
-          <Link href="/" className="text-xl font-bold text-brand-700 hover:text-brand-800 transition-colors">
+          <Link href="/" className="text-xl font-bold text-brand-400 hover:text-brand-300 transition-colors">
             {STORE.name}
           </Link>
 
@@ -25,7 +25,7 @@ export default function Header() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm font-medium text-stone-600 hover:text-brand-600 transition-colors"
+                className="text-sm font-medium text-stone-300 hover:text-brand-400 transition-colors"
               >
                 {item.label}
               </Link>
@@ -35,7 +35,7 @@ export default function Header() {
           {/* Телефон */}
           <a
             href={`tel:${STORE.phones[0].number.replace(/\D/g, '')}`}
-            className="hidden md:block text-sm font-semibold text-brand-600 hover:text-brand-700 transition-colors"
+            className="hidden md:block text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors"
           >
             {STORE.phones[0].number}
           </a>

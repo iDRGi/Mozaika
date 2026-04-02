@@ -37,7 +37,7 @@ export default function MobileMenu() {
       <button
         onClick={() => setIsOpen(true)}
         aria-label="Открыть меню"
-        className="sm:hidden flex flex-col justify-center gap-[5px] p-2 -mr-2 text-stone-700 hover:text-brand-600 transition-colors"
+        className="sm:hidden flex flex-col justify-center gap-[5px] p-2 -mr-2 text-stone-300 hover:text-brand-400 transition-colors"
       >
         <span className="block w-6 h-0.5 bg-current rounded-full" />
         <span className="block w-6 h-0.5 bg-current rounded-full" />
@@ -55,7 +55,7 @@ export default function MobileMenu() {
 
       {/* Выдвижная панель справа */}
       <div
-        className={`fixed top-0 right-0 h-full w-72 bg-white z-50 shadow-2xl sm:hidden flex flex-col transition-transform duration-300 ${
+        className={`fixed top-0 right-0 h-full w-72 bg-stone-900 z-50 shadow-2xl sm:hidden flex flex-col transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role="dialog"
@@ -63,12 +63,12 @@ export default function MobileMenu() {
         aria-label="Меню навигации"
       >
         {/* Шапка панели */}
-        <div className="flex items-center justify-between px-6 h-16 border-b border-stone-200 shrink-0">
-          <span className="font-bold text-brand-700 text-lg">Меню</span>
+        <div className="flex items-center justify-between px-6 h-16 border-b border-stone-700 shrink-0">
+          <span className="font-bold text-brand-400 text-lg">Меню</span>
           <button
             onClick={() => setIsOpen(false)}
             aria-label="Закрыть меню"
-            className="p-2 -mr-2 text-stone-500 hover:text-stone-800 transition-colors"
+            className="p-2 -mr-2 text-stone-400 hover:text-white transition-colors"
           >
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
               <line x1="4" y1="4" x2="16" y2="16" />
@@ -84,7 +84,7 @@ export default function MobileMenu() {
               key={item.href}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className="flex items-center py-4 text-lg font-medium text-stone-700 hover:text-brand-600 border-b border-stone-100 transition-colors last:border-0"
+              className="flex items-center py-4 text-lg font-medium text-stone-300 hover:text-brand-400 border-b border-stone-700 transition-colors last:border-0"
             >
               {item.label}
             </Link>
@@ -92,12 +92,12 @@ export default function MobileMenu() {
         </nav>
 
         {/* Телефон внизу */}
-        <div className="px-6 py-6 border-t border-stone-200 shrink-0">
+        <div className="px-6 py-6 border-t border-stone-700 shrink-0">
           {STORE.phones.map((p) => (
             <a
               key={p.number}
               href={`tel:${p.number.replace(/\D/g, '')}`}
-              className="block text-base font-semibold text-brand-600 hover:text-brand-700 transition-colors mb-1"
+              className="block text-base font-semibold text-brand-400 hover:text-brand-300 transition-colors mb-1"
             >
               {p.number}
             </a>

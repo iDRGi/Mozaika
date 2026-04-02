@@ -74,17 +74,17 @@ export default function ProductModal({ product, onClose }: Props) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
+        className="bg-stone-800 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Шапка */}
-        <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-stone-100">
-          <h2 className="text-lg font-semibold text-stone-800 leading-tight truncate">
+        <div className="flex items-center justify-between gap-4 px-6 py-4 border-b border-stone-700">
+          <h2 className="text-lg font-semibold text-white leading-tight truncate">
             {product.name}
           </h2>
           <button
             onClick={onClose}
-            className="flex-shrink-0 text-stone-400 hover:text-stone-700 transition-colors text-3xl leading-none w-8 h-8 flex items-center justify-center"
+            className="flex-shrink-0 text-stone-400 hover:text-white transition-colors text-3xl leading-none w-8 h-8 flex items-center justify-center"
             aria-label="Закрыть"
           >
             ×
@@ -95,7 +95,7 @@ export default function ProductModal({ product, onClose }: Props) {
         <div className="flex flex-col md:flex-row gap-6 p-6">
           {/* Левая колонка: картинка + навигация */}
           <div className="w-full md:w-1/2 flex-shrink-0">
-            <div className="rounded-xl overflow-hidden bg-stone-50 h-72 flex items-center justify-center">
+            <div className="rounded-xl overflow-hidden bg-stone-700 h-72 flex items-center justify-center">
               {imageUrl && currentImage ? (
                 <Image
                   src={imageUrl}
@@ -114,7 +114,7 @@ export default function ProductModal({ product, onClose }: Props) {
               <div className="flex items-center justify-center gap-3 mt-3">
                 <button
                   onClick={() => setCurrentIndex((i) => (i - 1 + total) % total)}
-                  className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 text-xl transition-colors"
+                  className="w-8 h-8 rounded-full bg-stone-700 hover:bg-stone-600 flex items-center justify-center text-stone-300 text-xl transition-colors"
                   aria-label="Предыдущее фото"
                 >
                   ‹
@@ -125,7 +125,7 @@ export default function ProductModal({ product, onClose }: Props) {
                       key={i}
                       onClick={() => setCurrentIndex(i)}
                       className={`w-2 h-2 rounded-full transition-colors ${
-                        i === currentIndex ? 'bg-brand-600' : 'bg-stone-300 hover:bg-stone-400'
+                        i === currentIndex ? 'bg-brand-500' : 'bg-stone-600 hover:bg-stone-500'
                       }`}
                       aria-label={`Фото ${i + 1}`}
                     />
@@ -133,7 +133,7 @@ export default function ProductModal({ product, onClose }: Props) {
                 </div>
                 <button
                   onClick={() => setCurrentIndex((i) => (i + 1) % total)}
-                  className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-600 text-xl transition-colors"
+                  className="w-8 h-8 rounded-full bg-stone-700 hover:bg-stone-600 flex items-center justify-center text-stone-300 text-xl transition-colors"
                   aria-label="Следующее фото"
                 >
                   ›
@@ -150,16 +150,16 @@ export default function ProductModal({ product, onClose }: Props) {
               </span>
             )}
             {product.description && (
-              <p className="text-stone-600 leading-relaxed whitespace-pre-line flex-1">
+              <p className="text-stone-300 leading-relaxed whitespace-pre-line flex-1">
                 {product.description}
               </p>
             )}
             {product.price != null && product.price > 0 && (
-              <p className="text-3xl font-bold text-brand-700 mt-4">
+              <p className="text-3xl font-bold text-brand-400 mt-4">
                 {product.price.toLocaleString('ru-RU')} ₽
               </p>
             )}
-            <div className="sticky bottom-0 bg-white pt-3 -mx-6 px-6 pb-1 md:static md:mx-0 md:px-0 md:pb-0 md:pt-0">
+            <div className="sticky bottom-0 bg-stone-800 pt-3 -mx-6 px-6 pb-1 md:static md:mx-0 md:px-0 md:pb-0 md:pt-0">
               <a
                 href={`tel:${STORE.phones[0].number.replace(/\D/g, '')}`}
                 className="mt-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center block"
