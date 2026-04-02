@@ -143,7 +143,7 @@ export default function ProductModal({ product, onClose }: Props) {
           </div>
 
           {/* Правая колонка: детали */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col min-h-0">
             {product.category && (
               <span className="text-xs text-stone-400 uppercase tracking-wide mb-3">
                 {CATEGORY_LABELS[product.category] || product.category}
@@ -159,12 +159,14 @@ export default function ProductModal({ product, onClose }: Props) {
                 {product.price.toLocaleString('ru-RU')} ₽
               </p>
             )}
-            <a
-              href={`tel:${STORE.phones[0].number.replace(/\D/g, '')}`}
-              className="mt-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center"
-            >
-              Позвонить
-            </a>
+            <div className="sticky bottom-0 bg-white pt-3 -mx-6 px-6 pb-1 md:static md:mx-0 md:px-0 md:pb-0 md:pt-0">
+              <a
+                href={`tel:${STORE.phones[0].number.replace(/\D/g, '')}`}
+                className="mt-4 bg-brand-600 hover:bg-brand-700 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center block"
+              >
+                Позвонить
+              </a>
+            </div>
           </div>
         </div>
       </div>

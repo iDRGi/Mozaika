@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { STORE } from '@/constants/store'
+import MobileMenu from './MobileMenu'
 
 const NAV = [
   { href: '/',         label: 'Главная' },
@@ -39,18 +40,8 @@ export default function Header() {
             {STORE.phones[0].number}
           </a>
 
-          {/* Мобильное меню — простые ссылки */}
-          <div className="flex sm:hidden gap-4">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-xs text-stone-600 hover:text-brand-600 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          {/* Мобильное меню — гамбургер */}
+          <MobileMenu />
         </div>
       </div>
     </header>

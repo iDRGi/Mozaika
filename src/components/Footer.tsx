@@ -14,8 +14,8 @@ export default function Footer() {
             <p className="text-stone-400 text-sm">{STORE.tagline}</p>
           </div>
 
-          {/* Навигация */}
-          <div>
+          {/* Навигация — скрыта на мобильном (есть гамбургер в хедере) */}
+          <div className="hidden sm:block">
             <h3 className="text-white font-semibold mb-3">Разделы</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/"         className="hover:text-white transition-colors">Главная</Link></li>

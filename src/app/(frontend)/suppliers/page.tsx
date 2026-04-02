@@ -78,38 +78,39 @@ export default async function SuppliersPage() {
             return (
               <div
                 key={supplier.id}
-                className="bg-white rounded-xl border border-stone-200 p-5 flex items-center gap-6"
+                className="bg-white rounded-xl border border-stone-200 p-5 flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6"
               >
-                {/* Логотип */}
-                <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center bg-stone-50 rounded-lg border border-stone-100 overflow-hidden">
-                  {logo?.url ? (
-                    <Image
-                      src={logo.url}
-                      alt={logo.alt || supplier.name}
-                      width={96}
-                      height={96}
-                      className="object-contain w-full h-full p-2"
-                    />
-                  ) : (
-                    <span className="text-4xl text-stone-300">🏭</span>
-                  )}
+                {/* Логотип + информация (строка на мобильном) */}
+                <div className="flex items-start gap-4 flex-1 min-w-0">
+                  <div className="flex-shrink-0 w-16 h-16 sm:w-24 sm:h-24 flex items-center justify-center bg-stone-50 rounded-lg border border-stone-100 overflow-hidden">
+                    {logo?.url ? (
+                      <Image
+                        src={logo.url}
+                        alt={logo.alt || supplier.name}
+                        width={96}
+                        height={96}
+                        className="object-contain w-full h-full p-2"
+                      />
+                    ) : (
+                      <span className="text-3xl sm:text-4xl text-stone-300">🏭</span>
+                    )}
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <h2 className="text-lg font-semibold text-stone-800 mb-1">{supplier.name}</h2>
+                    {supplier.description && (
+                      <p className="text-stone-500 text-sm leading-relaxed">{supplier.description}</p>
+                    )}
+                  </div>
                 </div>
 
-                {/* Информация */}
-                <div className="flex-1 min-w-0">
-                  <h2 className="text-lg font-semibold text-stone-800 mb-1">{supplier.name}</h2>
-                  {supplier.description && (
-                    <p className="text-stone-500 text-sm">{supplier.description}</p>
-                  )}
-                </div>
-
-                {/* Кнопка */}
+                {/* Кнопка — полная ширина на мобильном, авто на десктопе */}
                 {supplier.website && isSafeUrl(supplier.website) && (
                   <a
                     href={supplier.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 bg-brand-600 hover:bg-brand-700 text-white font-medium px-5 py-2.5 rounded-lg transition-colors text-sm"
+                    className="flex-shrink-0 bg-brand-600 hover:bg-brand-700 text-white font-medium px-5 py-2.5 rounded-lg transition-colors text-sm text-center w-full sm:w-auto"
                   >
                     Перейти на сайт
                   </a>

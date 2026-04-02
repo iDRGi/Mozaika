@@ -44,20 +44,20 @@ export default function ProductCard({ product }: { product: Product }) {
           )}
         </div>
 
-        <div className="p-4">
+        <div className="p-3 sm:p-4">
           {product.category && (
             <span className="text-xs text-stone-400 uppercase tracking-wide">
               {CATEGORY_LABELS[product.category] || product.category}
             </span>
           )}
-          <h3 className="font-semibold text-stone-800 mt-1 leading-tight line-clamp-2">
+          <h3 className="font-semibold text-stone-800 mt-1 leading-tight line-clamp-2 text-sm sm:text-base">
             {product.name}
           </h3>
           {product.description && (
-            <p className="text-sm text-stone-500 mt-1 line-clamp-2">{product.description}</p>
+            <p className="hidden sm:block text-sm text-stone-500 mt-1 line-clamp-2">{product.description}</p>
           )}
           {product.price != null && product.price > 0 && (
-            <p className="mt-3 text-lg font-bold text-brand-700">
+            <p className="mt-2 sm:mt-3 text-base sm:text-lg font-bold text-brand-700">
               {product.price.toLocaleString('ru-RU')} ₽
             </p>
           )}
