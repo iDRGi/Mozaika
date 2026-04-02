@@ -54,7 +54,10 @@ export default function ProductCard({ product }: { product: Product }) {
             {product.name}
           </h3>
           {product.description && (
-            <p className="hidden sm:block text-sm text-stone-400 mt-1 line-clamp-2">{product.description}</p>
+            <p
+              className="hidden sm:block text-sm text-stone-400 mt-1"
+              style={{ display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}
+            >{product.description}</p>
           )}
           {product.price != null && product.price > 0 && (
             <p className="mt-2 sm:mt-3 text-base sm:text-lg font-bold text-brand-400">
